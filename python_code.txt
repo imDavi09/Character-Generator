@@ -1,0 +1,42 @@
+import random #import the "random" library
+
+def changeColor(color): #defines a subroutine named "changeColor"
+  if color == "default":
+    return "\033[0m" #returns the color "default"
+  elif color == "red":
+    return "\033[31m" #returns the color "red"
+  elif color == "blue":
+    return "\033[34m" #returns the color "blue"
+  elif color == "green":
+    return "\033[32m" #returns the color "green"
+  elif color == "purple":
+    return "\033[35m" #returns the color "purple"
+  elif color == "yellow":
+    return "\033[33m" #returns the color "yellow"
+    
+def rollDices6nd8(): #defines a subroutine named "rollDices6nd8""
+  dice_6 = random.randint(1, 6) #generates a number between 1 and 6 and stores it in the variable "dice_6"
+  dice_8 = random.randint(1, 8) #generates a number between 1 and 8 and stores it in the variable "dice_8"
+  result = dice_6 * dice_8 #multiplies the values of "dice_6" and "dice_8" and stores the result in the variable "result"
+  return result #returns the value of "result"
+
+print(f"{changeColor('green')}CHARACTER GENERATOR") #prints "CHARACTER GENERATOR" in green
+print() #skip a line
+
+create_character = True #defines a variable named "create_character" and sets it to true
+
+while create_character == True: #creates a loop that will run as long as "create_character" is True
+  name = input(f"{changeColor('default')}Enter your character's {changeColor('blue')}NAME{changeColor('default')}: {changeColor('blue')}") #asks the user what the character's name will be
+  print() #skip a line
+  print(f"{changeColor('default')}Your Character") #prints "Your Character" (in default color)
+  print(f"Name: {changeColor('blue')}{name}") #prints character name (in blue)
+  print(f"HP: {changeColor('red')}{rollDices6nd8()}") #prints character HP (in red)
+  print() #skip a line
+  play = input(f"{changeColor('default')}Want to create another character? ({changeColor('blue')}Y{changeColor('default')}/{changeColor('red')}N{changeColor('default')}) {changeColor('purple')}") #asks the user if they want to create another character
+  print() #skip a line
+  if play == "Y" or play == "y": #checks if play is equal to "Y" or "y" (means the user wants to create another character)
+    create_character = True #keeps "create_character" as True
+  else: #else (it means the user does not want to create another character)
+    create_character = False #change "create_character" to False
+
+print(f"{changeColor('default')}End of {changeColor('yellow')}code{changeColor('default')}...") #prints "End of code"
